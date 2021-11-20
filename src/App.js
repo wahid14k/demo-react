@@ -14,6 +14,7 @@ import ShopPage from './pages/shop/shop.component'
 function App() {
   return (
     <div>
+    <Link to='/'>home</Link>
     <Link to='/shop'>shop</Link>
     <Routes>
         <Route  path='/' element={<HomePage/>}/>
