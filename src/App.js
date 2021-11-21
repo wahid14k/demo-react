@@ -3,19 +3,18 @@ import './App.css';
 import {
   
   Route,
-  Routes,Link
+  Routes
 } from 'react-router-dom'
 import HomePage from './pages/homepages/homepage.component'
 import ShopPage from './pages/shop/shop.component'
-
+import Header from './components/header/header.component'
 
 
 
 function App() {
   return (
     <div>
-    <Link to='/'>home</Link>
-    <Link to='/shop'>shop</Link>
+    <Header/>
     <Routes>
         <Route  path='/' element={<HomePage/>}/>
         <Route  path='/shop' element={<ShopPage/>}/>
