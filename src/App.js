@@ -11,7 +11,8 @@ import SignInAndSignUpPage from './pages/sign-in-and-sign-up-page/signinandup.co
 import { 
   onAuthStateChanged 
  } from "firebase/auth"
-import {auth} from './firebase/firebase.utils'
+import {auth,createUserProfileDocument} from './firebase/firebase.utils'
+import {onSnapshot} from 'firebase/firestore'
 class App extends React.Component {
   constructor(){
     super()
@@ -24,9 +25,24 @@ unsubscribefromAuth = null
 
 componentDidMount(){
  
-  this.unsubscribefromAuth = onAuthStateChanged(auth,(user) =>{
-    this.setState({currentuser:user})
+  this.unsubscribefromAuth = onAuthStateChanged(auth, async (userAuth) =>{
+    if(userAuth){
+      const userRef = await createUserProfileDocument(userAuth)
 
+
+      onSnapshot(userRef,(snapShot)=>{
+        this.setState({
+          currentuser:{
+            id:snapShot.id,
+            ...snapShot.data()
+          }
+        })
+
+      })
+    }
+    else{
+      this.setState({currentuser:userAuth})
+    }
   })
 }
 

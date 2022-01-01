@@ -1,0 +1,15 @@
+.sign-up{
+    display: flex;
+    flex-direction: column;
+    width: 380px;
+    // box-shadow:  3px 1px 8px 0px;
+    // padding: 0 0 0 10px;
+    // border-radius: 3%;
+
+    .title{
+        margin: 10px 0;
+    }
+    .sign-up-from{
+        padding: 0 0 3px;
+    }
+}
