@@ -53,7 +53,7 @@ componentWillUnmount(){
    render(){
      return (
        <div>
-       <Header currentuser ={this.state.currentuser}/>
+       <Header/>
        <Routes>
            <Route  path='/' element={<HomePage/>}/>
            <Route  path='/shop' element={<ShopPage/>}/>
